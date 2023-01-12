@@ -1,0 +1,145 @@
+## <collection_name> => comments
+
+*** MongoDB commands for Databases ***
+
+1. View all databases
+-> show dbs;
+
+2. Create a new or switch databases
+-> use <dbname>
+
+3. View current database
+-> db
+
+4. Delete database
+-> db.dropDatabase();
+
+
+*** MongoDB commands for Collections ***
+
+5. See all the collections in database
+-> show collections
+
+6. Make new collection in database
+-> db.createCollection('comments')
+
+7. Drop existing collection
+-> db.comments.drop()
+
+
+*** MongoDB commands for Rows ***
+
+8. Insert rows into collection
+=> For one row
+-> db.comments.insert({
+    'name': 'Harry',
+    'lang': 'JavaScript',
+    'member_since': 5
+})
+
+=> For many rows
+-> db.comments.insert(
+    [
+        {
+            'name': 'Harry1',
+            'lang': 'Python',
+            'member_since': 4
+        },
+        {
+            'name': 'Harry2',
+            'lang': 'CSS',
+            'member_since': 3
+        },
+    ])
+OR -> db.comments.insertMany(
+    [
+        {
+            'name': 'Harry1',
+            'lang': 'Python',
+            'member_since': 4
+        },
+        {
+            'name': 'Harry2',
+            'lang': 'CSS',
+            'member_since': 3
+        },
+    ])
+ 
+9. Show All Rows of collection
+-> db.comments.find()
+
+10. Show All Rows of collection (prettified)
+-> db.comments.find().pretty()
+
+
+*** Search commands in MongoDB ***
+
+11. Particular objects search having property set 'p'
+-> db.comments.find({p});
+-> Exa: db.comments.find({ lang: 'Python', name: 'Jatin'});
+
+12. limit of 2 rows in answer
+-> db.comments.find().limit(2)
+
+13. Count the number of rows in the output
+-> db.comments.find().count()
+
+14. Count the number of rows having property set 'p' in the output
+-> db.comments.find({p}).count()
+
+15. sort based on the 'member_since'
+-> Ascending = db.comments.find().sort({ member_since: 1 })
+-> Descending = db.comments.find().sort({ member_since: -1 })
+
+16. Stop when we find one entry having property set 'p'
+-> db.comments.findOne({p})
+
+17. Update the row having property set 'p'
+-> db.comments.update({p},<new_object>)
+-> Exa: db.comments.update({name: 'Harry'},
+        {
+            'name': 'Jatin',
+            'lang': 'All',
+            'member_since': 40
+        })
+
+=> agar update karta mangta hoy e data hoy j nai and e insert thai javu joiye to => upsert: true use karvu
+-> db.comments.update({name: 'Harry'},
+        {
+            'name': 'Jatin',
+            'lang': 'All',
+            'member_since': 40
+        }, {upsert: true})
+
+18. MongoDB increment operator 
+-> db.comments.update({name: 'Harry'},
+         {
+            $inc: {
+                'member_since': 2,
+            }  
+         })
+-> member_since += 2;
+
+19. MongoDB rename operator 
+-> db.comments.update({name: 'Harry'},
+         {
+            $rename: {
+                'member_since': 'member',
+            }  
+         })
+-> 'member_since' = 'member';
+
+20. MongoDB rename operator 
+-> db.comments.delete({name: 'Harry'})
+
+21. Less than operator 
+-> db.comments.find({member_since: {$lt: 90}})
+
+22. Greater than operator 
+-> db.comments.find({member_since: {$gt: 90}})
+
+23. Less than or equal operator 
+-> db.comments.find({member_since: {$lte: 90}})
+
+24. Greater than or equal operator 
+-> db.comments.find({member_since: {$gte: 90}})
