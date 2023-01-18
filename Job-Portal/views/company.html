@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-brand text-dark">Company Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- /Header -->
+    
+    <!-- Back -->
+    <div class="container1">
+        <div id="home">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="./index.html"><i class="fas fa-angle-double-left"></i> Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Back -->
+
+    <!-- form handling -->
+    <form method="POST" id="add_user">
+        <div class="new_user">
+            <div class="form-group">
+                <label for="name" class="text-light">Company Name</label>
+                <input type="hidden" name="id" value="">
+                <input type="text" name="name" value="" placeholder="Eg: Google">
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="text-light">Email</label>
+                <input type="text" name="email" value="" placeholder="Eg: jobs@google.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="text-light">Password</label>
+                <input type="text" name="password" value="" placeholder="Eg: 1234">
+            </div>
+            
+            <div class="form-group">
+                <label for="conf_password" class="text-light">Confirm Password</label>
+                <input type="text" name="conf_password" value="" placeholder="Eg: 1234">
+            </div>
+            
+            <div class="form-group">
+                <label for="age" class="text-light">Required Age</label>
+                <select type="option" name="age" value="" placeholder=""> 
+                    <option value="18to20">18 to 20</option>
+                    <option value="20to24">20 to 24</option>
+                    <option value="24above">24 above</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="cpi" class="text-light">CPI Required</label>
+                <input type="text" name="cpi" value="" placeholder="Eg: 7.5">
+            </div>
+            
+            <div class="form-group">
+                <label for="website" class="text-light">Official Website</label>
+                <input type="text" name="website" value="" placeholder="Eg: jobs.google.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="position" class="text-light">Position</label>
+                <input type="text" name="position" value="" placeholder="Eg: Software Developer">
+            </div>
+            
+            <div class="form-group">
+                <label for="package" class="text-light">Package</label>
+                <input type="text" name="package" value="" placeholder="Eg: 53 LPA">
+            </div>
+            
+            <div class="form-group">
+                <label for="description" class="text-light">Description</label>
+                <input type="text" name="description" value="" placeholder="Eg: Our company works on NodeJs">
+            </div>
+            
+            <div class="form-group" >
+                <button type="submit" class="btn text-dark update">Register</button>
+            </div>
+            
+            <div class="form-group" >
+                <span>Already Registered? <a href="./companylogin.html">Login</a></span>
+            </div>
+            
+        </div>
+    </form>
+    <!-- /form handling -->
+
+</body>
+</html>

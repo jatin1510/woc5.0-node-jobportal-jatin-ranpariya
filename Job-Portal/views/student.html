@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-brand text-dark">Student Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- /Header -->
+    
+    <!-- Back -->
+    <div class="container1">
+        <div id="home">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="./index.html"><i class="fas fa-angle-double-left"></i> Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Back -->
+
+    <!-- form handling -->
+    <form method="POST" id="add_user">
+        <div class="new_user">
+            <div class="form-group">
+                <label for="name" class="text-light">Full Name</label>
+                <input type="hidden" name="id" value="">
+                <input type="text" name="name" value="" placeholder="Eg: Jatin Ranpariya">
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="text-light">Email</label>
+                <input type="text" name="email" value="" placeholder="Eg: jobs@google.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="text-light">Password</label>
+                <input type="text" name="password" value="" placeholder="Eg: 1234">
+            </div>
+
+            <div class="form-group">
+                <label for="conf_password" class="text-light">Confirm Password</label>
+                <input type="text" name="conf_password" value="" placeholder="Eg: 1234">
+            </div>
+
+            <div class="form-group">
+                <label for="batch" class="text-light">Batch</label>
+                <input type="text" name="batch" value="" placeholder="Eg: 2020">
+            </div>
+
+            <div class="form-group">
+                <label for="cpi" class="text-light">CPI</label>
+                <input type="text" name="cpi" value="" placeholder="Eg: 8.1">
+            </div>
+
+            <div class="form-group">
+                <label for="age" class="text-light">Age</label>
+                <input type="text" name="age" value="" placeholder="Eg: 21">
+            </div>
+
+            <div class="form-group">
+                <label for="gender" class="text-light">Gender </label>
+                <div class="radio inline">
+                    <input type="radio" name="gender" value="Male" id="radio-1">
+                    <label for="radio-1" class="radio-label">Male</label>
+                </div>
+                <div class="radio inline">
+                    <input type="radio" name="gender" value="Female" id="radio-2">
+                    <label for="radio-2" class="radio-label">Female</label>
+                </div>
+                <div class="radio inline">
+                    <input type="radio" name="gender" value="Female" id="radio-3">
+                    <label for="radio-3" class="radio-label">Other</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="techstack" class="text-light">TechStack</label>
+                <input type="text" name="techstack" value="" placeholder="Eg: HTML, CSS and JS">
+            </div>
+            
+            <div class="form-group" >
+                <button type="submit" class="btn text-dark update">Register</button>
+            </div>
+
+            <div class="form-group" >
+                <span>Already Registered? <a href="./studentlogin.html">Login</a></span>
+            </div>
+
+        </div>
+    </form>
+    <!-- /form handling -->
+
+</body>
+</html>
