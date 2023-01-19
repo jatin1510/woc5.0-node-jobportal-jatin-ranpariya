@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -14,7 +14,7 @@
         <nav>
             <div class="container">
                 <div class="text-center">
-                    <a href="/" class="nav-brand text-dark">Student Login</a>
+                    <a href="/" class="nav-brand text-dark">Company Login</a>
                 </div>
             </div>
         </nav>
@@ -22,15 +22,7 @@
     <!-- /Header -->
     
     <!-- Back -->
-    <div class="container1">
-        <div id="home">
-            <div class="box-nav d-flex justify-between">
-                <div class="filter">
-                    <a href="./index.html"><i class="fas fa-angle-double-left"></i> Home</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <%- include('include/_back.ejs') %>
     <!-- /Back -->
 
     <!-- form handling -->
@@ -38,20 +30,20 @@
         <div class="new_user">
             <div class="form-group">
                 <label for="email" class="text-light">Email</label>
-                <input type="text" name="email" value="" placeholder="Eg: jatin1510@gmail.com">
+                <input type="text" name="email" value="" placeholder="Eg: jobs@google.com">
             </div>
 
             <div class="form-group">
                 <label for="password" class="text-light">Password</label>
-                <input type="text" name="password" value="" placeholder="Eg: 1510">
+                <input type="text" name="password" value="" placeholder="Eg: 1234">
             </div>
 
             <div class="form-group" >
-                <button type="submit" class="btn text-dark update">Login</button>
+                <button type="button" class="btn text-dark update">Login</button>
             </div>
 
             <div class="form-group" >
-                <span>Don't have an account? <a href="./student.html">Register</a></span>
+                <span>Don't have an account? <a href="/company">Register</a></span>
             </div>
         </div>
     </form>

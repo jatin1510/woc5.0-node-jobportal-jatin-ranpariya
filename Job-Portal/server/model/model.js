@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var schema = new mongoose.Schema({
+var schema1 = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -10,9 +10,67 @@ var schema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    gender: String,
-    status: String,
+    password: {
+        type: String,
+        required: true,
+    },
+    batch: {
+        type: Number,
+        required: true,
+    },
+    cpi: {
+        type: Number,
+        required: true,
+    },
+    age: {
+        type: Number,
+        required: true,
+    },
+    gender: {
+        type: String,
+        required: true,
+    },
+    techstack: String,
 })
 
-const userDB = mongoose.model('userDB', schema);
-module.exports = userDB;
+var schema2 = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    req_age: {
+        type: String,
+        required: true,
+    },
+    req_cpi: {
+        type: Number,
+        required: true,
+    },
+    website: {
+        type: String,
+        required: true,
+    },
+    position: {
+        type: String,
+        required: true,
+    },
+    package: {
+        type: Number,
+        required: true,
+    },
+    description: String,
+})
+
+const student = mongoose.model('student', schema1);
+const company = mongoose.model('company', schema2);
+
+module.exports = { student, company };

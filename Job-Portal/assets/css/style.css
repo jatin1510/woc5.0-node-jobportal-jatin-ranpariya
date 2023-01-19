@@ -123,12 +123,15 @@ table {
     border-collapse: collapse;
 }
 
-table, th, td{
+table,
+th,
+td {
     border: 1.5px solid black;
 }
 
 thead {
-    color: #2500ff;
+    background-color: #06d6a0;
+    font-weight: bolder;
 }
 
 .table td,
@@ -211,7 +214,8 @@ thead {
 }
 
 #update_user .form-group input[type="text"],
-#add_user .form-group input[type="text"] {
+#add_user .form-group input[type="text"],
+.form-group input[type="number"] {
     width: 100%;
     padding: .6em 1em;
     margin: .5em 0;
@@ -267,7 +271,8 @@ thead {
 }
 
 #update_user .form-group .btn,
-#add_user .form-group .btn {
+#add_user .form-group .btn,
+.buttons .btn {
     width: 100%;
     padding: .9em 1em;
     background-color: #16db93;
@@ -291,12 +296,37 @@ thead {
 }
 
 #home {
-    position: relative;
-    top: 20%;
-    left: 11.5%;
+    /* position: relative; */
+    width: fit-content;
+    /* top: 20%;
+    left: 11.5%; */
     padding-top: 20px;
+    padding-left: 210px;
 }
 
 .mytable {
     margin-top: 5%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 3% 90%;
+}
+
+#set {
+    margin: 3% 0.7%;
+    width: 10%;
+}
+
+#set:hover {
+    background-color: var(--dark);
+}
+
+#set:hover>a {
+    color: white;
+}
+
+#set>a {
+    color: black;
 }

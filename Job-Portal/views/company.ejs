@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -22,15 +22,7 @@
     <!-- /Header -->
     
     <!-- Back -->
-    <div class="container1">
-        <div id="home">
-            <div class="box-nav d-flex justify-between">
-                <div class="filter">
-                    <a href="./index.html"><i class="fas fa-angle-double-left"></i> Home</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <%- include('include/_back.ejs') %>
     <!-- /Back -->
 
     <!-- form handling -->
@@ -96,7 +88,7 @@
             </div>
             
             <div class="form-group" >
-                <span>Already Registered? <a href="./companylogin.html">Login</a></span>
+                <span>Already Registered? <a href="/companylogin">Login</a></span>
             </div>
             
         </div>
