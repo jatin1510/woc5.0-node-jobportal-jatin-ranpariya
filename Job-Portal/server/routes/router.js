@@ -33,9 +33,32 @@ route.get('/studentlogin', services.studentlogin)
   */
 route.get('/student', services.student)
 
+/**
+  * @description all registered company
+  * @method GET /allcompany
+  */
+route.get('/allcompany', services.allcompany)
+
+/**
+  * @description user data show
+  * @method GET /showstudent
+  */
+route.get('/showstudent', services.showstudent)
+
+/**
+  * @description user data show
+  * @method GET /showstudent
+  */
+route.get('/oops', services.nocompany)
+
+
 // API
 route.post('/api/student', controller.create_student);
 route.post('/api/company', controller.create_company);
+
+// validate login
+route.post('/api/studentlogin', controller.validatestudent);
+route.post('/api/companylogin', controller.validatecompany);
 
 route.put('/api/studentupdate/:id', controller.update_student);
 route.put('/api/companyupdate/:id', controller.update_company);
@@ -43,6 +66,11 @@ route.put('/api/companyupdate/:id', controller.update_company);
 route.delete('/api/studentdelete/:id', controller.delete_student);
 route.delete('/api/companydelete/:id', controller.delete_company);
 
+// use - /api/showcompany?id=all
+// use - /api/showcompany?id=<obj_id>
+route.get('/api/showstudent', controller.find_student);
 route.get('/api/showcompany', controller.find_companies);
+
+route.get('/searchcompany', controller.search_company);
 
 module.exports = route;

@@ -1,0 +1,27 @@
+<div class="container2">
+    <% for(var i=0; i<company.length; i++) {%> 
+    <div class="card">
+        <h2> <%= company[i].name %> </h2>
+        <div class="group">
+            <div>Email</div>
+            <span><i><%= company[i].email %></i></span>
+        </div>
+        <div class="group">
+            <div>Age Required</div>
+            <span><%= company[i].req_age %></span>
+        </div>
+        <div class="group">
+            <div>CPI Required</div>
+            <span><%= company[i].req_cpi %></span>
+        </div>
+        <div class="group">
+            <div>Position</div>
+            <span><i><%= company[i].position %></i></span>
+        </div>
+        <div class="group">
+            <div>Package</div>
+            <span><%= company[i].package %> LPA</span>
+        </div>
+    </div>
+    <% } %> 
+</div>

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header -->
@@ -14,28 +15,17 @@
         <nav>
             <div class="container">
                 <div class="text-center">
-                    <a href="/" class="nav-brand text-dark">Job Portal</a>
+                    <a href="/" class="nav-brand text-dark">All Companies</a>
                 </div>
             </div>
         </nav>
     </header>
     <!-- /Header -->
     
-    <!-- Main site -->
-    <main id="site-main">
-        <div class="container">
-            <div class="box-nav d-flex justify-between" id="photo1">
-                <a href="/companylogin">
-                    <span class="spanclass">Company</span>
-                </a>
-            </div> 
-            <div class="box-nav d-flex justify-between" id="photo2">
-                <a href="/studentlogin">
-                    <span class="spanclass">Student</span>
-                </a>
-            </div> 
-        </div>
-    </main>
-    <!-- /Main site -->
-
+    <!-- Back -->
+    <%- include('include/_back.ejs') %>
+    <!-- /Back -->
+    
+    <%- include('include/_allcompany.ejs') %>
+    
     <%- include('include/_footer.ejs') %>

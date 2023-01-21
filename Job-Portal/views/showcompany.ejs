@@ -17,7 +17,7 @@
             <nav>
                 <div class="container">
                     <div class="text-center">
-                        <a href="/" class="nav-brand text-dark">Student Details</a>
+                        <a href="/" class="nav-brand text-dark">Company Details</a>
                     </div>
                 </div>
             </nav>
@@ -38,31 +38,35 @@
             <tbody>
                 <tr>
                     <td>Name</td>
-                    <td><%= student.name %></td>
+                    <td><%= company.name %></td>
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td><%= student.email %></td>
+                    <td><%= company.email %></td>
                 </tr>
                 <tr>
-                    <td>Batch</td>
-                    <td><%= student.batch %></td>
+                    <td>Required Age</td>
+                    <td><%= company.req_age %></td>
                 </tr>
                 <tr>
-                    <td>CPI</td>
-                    <td><%= student.cpi %></td>
+                    <td>Required CPI</td>
+                    <td><%= company.req_cpi %></td>
                 </tr>
                 <tr>
-                    <td>Age</td>
-                    <td><%= student.age %></td>
+                    <td>Official Website</td>
+                    <td><%= company.website %></td>
                 </tr>
                 <tr>
-                    <td>Gender</td>
-                    <td><%= student.gender %></td>
+                    <td>Position</td>
+                    <td><%= company.position %></td>
                 </tr>
                 <tr>
-                    <td>TechStack</td>
-                    <td><%= student.techstack %></td>
+                    <td>Package</td>
+                    <td><%= company.package %></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><%= company.description %></td>
                 </tr>
             </tbody>
         </table>
@@ -72,13 +76,7 @@
                 <a href="/studentedit">Edit</a>
             </button>
             <button class="btn update" id="set">
-                <a data-id="<%= student._id %>" onclick="deleteuser(this)">Delete</a>
-            </button>
-            <button class="btn update" id="set">
-                <a href="/searchcompany?email=<%= student.email %>&cpi=<%= student.cpi %>&age=<%= student.age %>">Seach Company</a>
-            </button>
-            <button class="btn update" id="set">
-                <a href="/allcompany?id=all">All Companies</a>
+                <a href="/studentdelete">Delete</a>
             </button>
         </div>
 

@@ -26,7 +26,7 @@
     <!-- /Back -->
 
     <!-- form handling -->
-    <form method="POST" id="add_user">
+    <form action="/api/student" method="POST" id="add_user">
         <div class="new_user">
             <div class="form-group">
                 <label for="name" class="text-light">Full Name</label>
@@ -56,7 +56,7 @@
 
             <div class="form-group">
                 <label for="cpi" class="text-light">CPI</label>
-                <input type="number" name="cpi" value="" placeholder="Eg: 8.1">
+                <input type="number" step="0.01" name="cpi" value="" placeholder="Eg: 8.1">
             </div>
 
             <div class="form-group">
@@ -86,7 +86,7 @@
             </div>
             
             <div class="form-group" >
-                <button type="submit" class="btn text-dark update">Register</button>
+                <button type="submit" class="btn text-dark update">Save</button>
             </div>
 
             <div class="form-group" >
@@ -97,5 +97,4 @@
     </form>
     <!-- /form handling -->
 
-</body>
-</html>
+    <%- include('include/_footer.ejs') %>

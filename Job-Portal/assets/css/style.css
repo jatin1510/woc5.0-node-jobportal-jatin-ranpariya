@@ -203,18 +203,27 @@ thead {
     margin: auto;
 }
 
-#add_user {
+#add_user,
+#add_company,
+#validate_user,
+#validate_company {
     margin-top: 2%;
     margin-bottom: 2%;
 }
 
 #update_user .form-group,
-#add_user .form-group {
+#add_user .form-group,
+#add_company .form-group,
+#validate_user .form-group,
+#validate_company .form-group {
     margin: .4em 0;
 }
 
 #update_user .form-group input[type="text"],
 #add_user .form-group input[type="text"],
+#validate_user .form-group input[type="text"],
+#validate_company .form-group input[type="text"],
+#add_company .form-group input[type="text"],
 .form-group input[type="number"] {
     width: 100%;
     padding: .6em 1em;
@@ -226,7 +235,10 @@ thead {
 }
 
 #update_user .form-group .radio,
-#add_user .form-group .radio {
+#add_user .form-group .radio,
+#add_company .form-group .radio,
+#validate_company .form-group .radio,
+#validate_user .form-group .radio{
     margin: 1em 2em;
 }
 
@@ -272,6 +284,9 @@ thead {
 
 #update_user .form-group .btn,
 #add_user .form-group .btn,
+#validate_user .form-group .btn,
+#validate_company .form-group .btn,
+#add_company .form-group .btn,
 .buttons .btn {
     width: 100%;
     padding: .9em 1em;
@@ -285,7 +300,10 @@ thead {
 }
 
 #update_user .form-group .btn:hover,
-#add_user .form-group .btn:hover {
+#add_user .form-group .btn:hover,
+#validate_user .form-group .btn:hover,
+#validate_company .form-group .btn:hover,
+#add_company .form-group .btn:hover {
     background-color: var(--dark);
     color: var(--border);
 }
@@ -329,4 +347,44 @@ thead {
 
 #set>a {
     color: black;
+}
+
+.container2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 3%;
+}
+
+.card {
+    width: 310px;
+    font-size: medium;
+    margin: 2%;
+    padding: 2%;
+    border: 1.5px solid black;
+    color: black;
+    background-color: #5ff6bf;
+    border-radius: 25px;
+}
+
+.card:hover {
+    margin: 2%;
+    padding: 2%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.85);
+    transform: scale(1.1);
+}
+
+.card:hover .group div {
+    color: aquamarine;
+}
+
+.group {
+    margin: 5px 0;
+}
+
+.group>div {
+    font-weight: bolder;
+    color: darkblue;
+    font-size: 1.1em;
 }

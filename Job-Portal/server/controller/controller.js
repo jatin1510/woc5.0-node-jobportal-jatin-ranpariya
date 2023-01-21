@@ -1,4 +1,5 @@
 var { student, company } = require('../model/model')
+const axios = require('axios');
 
 // create a new student
 exports.create_student = (req, res) =>
@@ -26,8 +27,7 @@ exports.create_student = (req, res) =>
         .save(user)
         .then(data =>
         {
-            res.send(data);
-            // res.redirect('/')
+            res.redirect('/studentlogin')
         })
         .catch(err =>
         {
@@ -64,8 +64,7 @@ exports.create_company = (req, res) =>
         .save(user)
         .then(data =>
         {
-            res.send(data);
-            // res.redirect('/')
+            res.redirect('/companylogin');
         })
         .catch(err =>
         {
@@ -169,24 +168,127 @@ exports.delete_company = (req, res) =>
         });
 }
 
-// find all company
+exports.validatestudent = (req, res) =>
+{
+    if (!req.body) {
+        return res
+            .status(400)
+            .send({ message: 'Data can not be empty' });
+    }
+
+    const email = req.body.email;
+    const pass = req.body.password;
+
+    student.find({ email: email })
+        .then((data) =>
+        {
+            if (!data) {
+                res
+                    .status(404)
+                    .send({ message: `Not found user with email: ${email} ` });
+            } else {
+                if (data[0].password == pass) {
+                    res.redirect(`/api/showstudent?email=${email}`);
+                } else {
+                    res.status(404).send({ message: "Invalid Password or email!" });
+                }
+            }
+        })
+        .catch((err) =>
+        {
+            res
+                .status(500)
+                .send({ message: `Error retrieving user with email ${email}` });
+        });
+}
+
+exports.validatecompany = (req, res) =>
+{
+    if (!req.body) {
+        return res
+            .status(400)
+            .send({ message: 'Data can not be empty' });
+    }
+
+    const email = req.body.email;
+    const pass = req.body.password;
+
+    company.find({ email: email })
+        .then((data) =>
+        {
+            if (!data) {
+                res
+                    .status(404)
+                    .send({ message: `Not found company with email: ${email} ` });
+            } else {
+                if (data[0].password == pass) {
+                    res.redirect(`/api/showcompany?email=${email}`);
+                } else {
+                    res.status(404).send({ message: "Invalid Password or email!" });
+                }
+            }
+        })
+        .catch((err) =>
+        {
+            res
+                .status(500)
+                .send({ message: `Error retrieving company with email ${email}` });
+        });
+}
+
+// find student
+exports.find_student = (req, res) =>
+{
+    if (!req.query) {
+        res.status(400).send({ message: 'Query can not be empty!' });
+        return;
+    }
+    const email = req.query.email;
+    student.find({ email: email })
+        .then((data) =>
+        {
+            if (!data) {
+                res
+                    .status(404)
+                    .send({ message: `Not found user with email: ${email} ` });
+            } else {
+                res.render('showstudent', { student: data[0] });
+            }
+        })
+        .catch((err) =>
+        {
+            res
+                .status(500)
+                .send({ message: `Error retrieving user with email ${email}` });
+        });
+}
+
 exports.find_companies = (req, res) =>
 {
+    if (!req.query) {
+        res.status(400).send({ message: 'Query can not be empty!' });
+        return;
+    }
+
     if (req.query.id !== 'all') {
-        const id = req.query.id;
-        company.findById(id)
-            .then(data =>
+        const email = req.query.email;
+        company.find({ email: email })
+            .then((data) =>
             {
                 if (!data) {
-                    res.status(404).send({ message: `Not found user with id ${id}` })
+                    res
+                        .status(404)
+                        .send({ message: `Not found company with email: ${email} ` });
                 } else {
-                    res.send(data);
+                    res.render('showcompany', { company: data[0] });
                 }
             })
-            .catch(err =>
+            .catch((err) =>
             {
-                res.status(500).send({ message: 'Error retriving user with id ' + id });
-            })
+                res
+                    .status(500)
+                    .send({ message: `Error retrieving user with email ${email}` });
+            });
     }
     else {
         company.find()
@@ -197,8 +299,44 @@ exports.find_companies = (req, res) =>
             .catch(err =>
             {
                 res.status(500).send({
-                    message: err.message || 'Error occured while retriving user information'
+                    message: err.message || 'Error occured while retriving company information'
                 });
             });
     }
+}
+
+exports.search_company = (req, res) =>
+{
+    if (!req.query) {
+        res.status(400).send({ message: 'Query can not be empty!' });
+        return;
+    }
+
+    const { email, cpi, age } = req.query;
+
+    axios.get('http://localhost:3000/api/showcompany?id=all')
+        .then(function (response)
+        {
+            const companies = response.data;
+            const obj = []
+            for (let i = 0; i < companies.length; i++) {
+                const req_cpi = companies[i].req_cpi;
+                const req_age = companies[i].req_age;
+                if (cpi >= req_cpi && age >= req_age) {
+                    obj.push(companies[i]);
+                }
+            }
+
+            if (obj.length == 0) {
+                res.render('oops');
+            }
+            else {
+                res.render('allcompany', { company: obj });
+            }
+        })
+        .catch(err =>
+        {
+            res.send(err);
+        })
+
 }

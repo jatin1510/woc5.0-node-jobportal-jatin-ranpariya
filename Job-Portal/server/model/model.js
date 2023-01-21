@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
-
+var mongoose = require('mongoose');
+var Double = require('mongodb').Double;
+ 
 var schema1 = new mongoose.Schema({
     name: {
         type: String,
@@ -48,7 +49,7 @@ var schema2 = new mongoose.Schema({
         required: true,
     },
     req_age: {
-        type: String,
+        type: Number,
         required: true,
     },
     req_cpi: {
