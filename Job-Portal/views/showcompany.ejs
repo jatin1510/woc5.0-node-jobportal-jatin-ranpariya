@@ -17,7 +17,7 @@
             <nav>
                 <div class="container">
                     <div class="text-center">
-                        <a href="/" class="nav-brand text-dark">Company Details</a>
+                        <a href="#" class="nav-brand text-dark">Company Details</a>
                     </div>
                 </div>
             </nav>
@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                     <td>Package</td>
-                    <td><%= company.package %></td>
+                    <td><%= company.package %> LPA</td>
                 </tr>
                 <tr>
                     <td>Description</td>
@@ -73,10 +73,10 @@
 
         <div class="buttons">
             <button class="btn update" id="set">
-                <a href="/studentedit">Edit</a>
+                <a href="/companyedit?email=<%= company.email %>">Edit</a>
             </button>
             <button class="btn update" id="set">
-                <a href="/studentdelete">Delete</a>
+                <a href="/api/companydelete/<%= company._id %>">Delete</a>
             </button>
         </div>
 

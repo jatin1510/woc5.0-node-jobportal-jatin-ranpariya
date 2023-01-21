@@ -14,7 +14,7 @@
         <nav>
             <div class="container">
                 <div class="text-center">
-                    <a href="#" class="nav-brand text-dark">Company Register</a>
+                    <a href="#" class="nav-brand text-dark">Company Edit</a>
                 </div>
             </div>
         </nav>
@@ -26,68 +26,61 @@
     <!-- /Back -->
 
     <!-- form handling -->
-    <form action="/api/company" method="POST" id="add_company">
+    <form method="POST" id="edit_company">
         <div class="new_user">
             <div class="form-group">
                 <label for="name" class="text-light">Company Name</label>
-                <input type="hidden" name="id" value="">
-                <input type="text" name="name" value="" placeholder="Eg: Google">
+                <input type="hidden" name="id" value="<%= company._id %>">
+                <input type="text" name="name" value="<%= company.name %>" placeholder="Eg: Google">
             </div>
             
             <div class="form-group">
                 <label for="email" class="text-light">Email</label>
-                <input type="text" name="email" value="" placeholder="Eg: jobs@google.com">
+                <input type="text" name="email" value="<%= company.email %>" placeholder="Eg: jobs@google.com">
             </div>
             
             <div class="form-group">
                 <label for="password" class="text-light">Password</label>
-                <input type="text" name="password" value="" placeholder="Eg: 1234">
-            </div>
-            
-            <div class="form-group">
-                <label for="conf_password" class="text-light">Confirm Password</label>
-                <input type="text" name="conf_password" value="" placeholder="Eg: 1234">
+                <input type="text" name="password" value="<%= company.password %>" placeholder="Eg: 1234">
             </div>
             
             <div class="form-group">
                 <label for="req_age" class="text-light">Required Age</label>
-                <input type="number" name="req_age" value="" placeholder="Eg: 21">
+                <input type="number" name="req_age" value="<%= company.req_age %>" placeholder="Eg: 21">
             </div>
             
             <div class="form-group">
                 <label for="req_cpi" class="text-light">CPI Required</label>
-                <input type="number" step="0.01" name="req_cpi" value="" placeholder="Eg: 7.5">
+                <input type="number" step="0.01" name="req_cpi" value="<%= company.req_cpi %>" placeholder="Eg: 7.5">
             </div>
             
             <div class="form-group">
                 <label for="website" class="text-light">Official Website</label>
-                <input type="text" name="website" value="" placeholder="Eg: jobs.google.com">
+                <input type="text" name="website" value="<%= company.website %>" placeholder="Eg: jobs.google.com">
             </div>
             
             <div class="form-group">
                 <label for="position" class="text-light">Position</label>
-                <input type="text" name="position" value="" placeholder="Eg: Software Developer">
+                <input type="text" name="position" value="<%= company.position %>" placeholder="Eg: Software Developer">
             </div>
             
             <div class="form-group">
                 <label for="package" class="text-light">Package</label>
-                <input type="text" name="package" value="" placeholder="Eg: 53 LPA">
+                <input type="text" name="package" value="<%= company.package %>" placeholder="Eg: 53 LPA">
             </div>
             
             <div class="form-group">
                 <label for="description" class="text-light">Description</label>
-                <input type="text" name="description" value="" placeholder="Eg: Our company works on NodeJs">
+                <input type="text" name="description" value="<%= company.description %>" placeholder="Eg: Our company works on NodeJs">
             </div>
             
             <div class="form-group" >
                 <button type="submit" class="btn text-dark update">Save</button>
             </div>
             
-            <div class="form-group" >
-                <span>Already Registered? <a href="/companylogin">Login</a></span>
-            </div>
         </div>
     </form>
+
     <!-- /form handling -->
 
     <%- include('include/_footer.ejs') %>

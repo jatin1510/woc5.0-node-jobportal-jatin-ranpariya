@@ -128,44 +128,30 @@ exports.update_company = (req, res) =>
 exports.delete_student = (req, res) =>
 {
     const id = req.params.id;
-    student.findByIdAndDelete(id)
-        .then(data =>
-        {
-            if (!data) {
-                res.status(404).send({ message: `Cannot delete user with id ${id}. Maybe ID is wrong!` })
-            }
-            else {
-                res.send({ message: 'User was deleted successfully' });
-            }
-        })
-        .catch(err =>
-        {
-            res.status(500).send({
-                message: `Could not delete user with id=${id}`,
-            });
-        });
+    student.deleteOne({ _id: id }, function (err)
+    {
+        if (err) {
+            res.status(400).send(err);
+        }
+        else {
+            res.redirect('/');
+        }
+    })
 }
 
 // delete company
 exports.delete_company = (req, res) =>
 {
     const id = req.params.id;
-    company.findByIdAndDelete(id)
-        .then(data =>
-        {
-            if (!data) {
-                res.status(404).send({ message: `Cannot delete company with id ${id}. Maybe ID is wrong!` })
-            }
-            else {
-                res.send({ message: 'Company was deleted successfully' });
-            }
-        })
-        .catch(err =>
-        {
-            res.status(500).send({
-                message: `Could not delete company with id=${id}`,
-            });
-        });
+    company.deleteOne({ _id: id }, function (err)
+    {
+        if (err) {
+            res.status(400).send(err);
+        }
+        else {
+            res.redirect('/');
+        }
+    })
 }
 
 exports.validatestudent = (req, res) =>
@@ -318,6 +304,7 @@ exports.search_company = (req, res) =>
         .then(function (response)
         {
             const companies = response.data;
+            companies.sort((a, b) => b.package - a.package)
             const obj = []
             for (let i = 0; i < companies.length; i++) {
                 const req_cpi = companies[i].req_cpi;
@@ -339,4 +326,48 @@ exports.search_company = (req, res) =>
             res.send(err);
         })
 
+}
+
+exports.studentedit = (req, res) =>
+{
+    const email = req.query.email;
+    student.find({ email: email })
+        .then((data) =>
+        {
+            if (!data) {
+                res
+                    .status(404)
+                    .send({ message: `Not found user with email: ${email} ` });
+            } else {
+                res.render('studentedit', { student: data[0] });
+            }
+        })
+        .catch((err) =>
+        {
+            res
+                .status(500)
+                .send({ message: `Error retrieving user with email ${email}` });
+        });
+}
+
+exports.companyedit = (req, res) =>
+{
+    const email = req.query.email;
+    company.find({ email: email })
+        .then((data) =>
+        {
+            if (!data) {
+                res
+                    .status(404)
+                    .send({ message: `Not found user with email: ${email} ` });
+            } else {
+                res.render('companyedit', { company: data[0] });
+            }
+        })
+        .catch((err) =>
+        {
+            res
+                .status(500)
+                .send({ message: `Error retrieving user with email ${email}` });
+        });
 }

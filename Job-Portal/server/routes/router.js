@@ -63,8 +63,8 @@ route.post('/api/companylogin', controller.validatecompany);
 route.put('/api/studentupdate/:id', controller.update_student);
 route.put('/api/companyupdate/:id', controller.update_company);
 
-route.delete('/api/studentdelete/:id', controller.delete_student);
-route.delete('/api/companydelete/:id', controller.delete_company);
+route.get('/api/studentdelete/:id', controller.delete_student);
+route.get('/api/companydelete/:id', controller.delete_company);
 
 // use - /api/showcompany?id=all
 // use - /api/showcompany?id=<obj_id>
@@ -73,4 +73,6 @@ route.get('/api/showcompany', controller.find_companies);
 
 route.get('/searchcompany', controller.search_company);
 
+route.get('/studentedit', controller.studentedit)
+route.get('/companyedit', controller.companyedit)
 module.exports = route;

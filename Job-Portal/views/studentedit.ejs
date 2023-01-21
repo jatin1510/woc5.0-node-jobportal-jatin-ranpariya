@@ -14,7 +14,7 @@
         <nav>
             <div class="container">
                 <div class="text-center">
-                    <a href="#" class="nav-brand text-dark">Student Register</a>
+                    <a href="#" class="nav-brand text-dark">Student Edit</a>
                 </div>
             </div>
         </nav>
@@ -26,75 +26,66 @@
     <!-- /Back -->
 
     <!-- form handling -->
-    <form action="/api/student" method="POST" id="add_user">
+    <form method="POST" id="update_user">
         <div class="new_user">
             <div class="form-group">
                 <label for="name" class="text-light">Full Name</label>
-                <input type="hidden" name="id" value="">
-                <input type="text" name="name" value="" placeholder="Eg: Jatin Ranpariya">
+                <input type="hidden" name="id" value="<%= student._id %>">
+                <input type="text" name="name" value="<%= student.name %>" placeholder="Eg: Jatin Ranpariya">
             </div>
 
             <div class="form-group">
                 <label for="email" class="text-light">Email</label>
-                <input type="text" name="email" value="" placeholder="Eg: jatin1510@gmail.com">
+                <input type="text" name="email" value="<%= student.email %>" placeholder="Eg: jatin1510@gmail.com">
             </div>
 
             <div class="form-group">
                 <label for="password" class="text-light">Password</label>
-                <input type="text" name="password" value="" placeholder="Eg: 1234">
-            </div>
-
-            <div class="form-group">
-                <label for="conf_password" class="text-light">Confirm Password</label>
-                <input type="text" name="conf_password" value="" placeholder="Eg: 1234">
+                <input type="text" name="password" value="<%= student.password %>" placeholder="Eg: 1234">
             </div>
 
             <div class="form-group">
                 <label for="batch" class="text-light">Batch</label>
-                <input type="number" name="batch" value="" placeholder="Eg: 2020">
+                <input type="number" name="batch" value="<%= student.batch %>" placeholder="Eg: 2020">
             </div>
 
             <div class="form-group">
                 <label for="cpi" class="text-light">CPI</label>
-                <input type="number" step="0.01" name="cpi" value="" placeholder="Eg: 8.1">
+                <input type="number" step="0.01" name="cpi" value="<%= student.cpi %>" placeholder="Eg: 8.1">
             </div>
 
             <div class="form-group">
                 <label for="age" class="text-light">Age</label>
-                <input type="number" name="age" value="" placeholder="Eg: 21">
+                <input type="number" name="age" value="<%= student.age %>" placeholder="Eg: 21">
             </div>
 
             <div class="form-group">
                 <label for="gender" class="text-light">Gender </label>
                 <div class="radio inline">
-                    <input type="radio" name="gender" value="Male" id="radio-1">
+                    <input type="radio" name="gender" id="radio-1" value="Male" <%= student.gender == 'Male' ? 'checked' : ' ' %>>
                     <label for="radio-1" class="radio-label">Male</label>
                 </div>
                 <div class="radio inline">
-                    <input type="radio" name="gender" value="Female" id="radio-2">
+                    <input type="radio" name="gender" id="radio-2" value="Female" <%= student.gender == 'Female' ? 'checked' : ' ' %>>
                     <label for="radio-2" class="radio-label">Female</label>
                 </div>
                 <div class="radio inline">
-                    <input type="radio" name="gender" value="Female" id="radio-3">
+                    <input type="radio" name="gender" id="radio-3" value="Female" <%= student.gender == 'Other' ? 'checked' : ' ' %>>
                     <label for="radio-3" class="radio-label">Other</label>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="techstack" class="text-light">TechStack</label>
-                <input type="text" name="techstack" value="" placeholder="Eg: HTML, CSS and JS">
+                <input type="text" name="techstack" value="<%= student.techstack %>" placeholder="Eg: HTML, CSS and JS">
             </div>
             
             <div class="form-group" >
                 <button type="submit" class="btn text-dark update">Save</button>
             </div>
-
-            <div class="form-group" >
-                <span>Already Registered? <a href="/studentlogin">Login</a></span>
-            </div>
-
         </div>
     </form>
+
     <!-- /form handling -->
 
     <%- include('include/_footer.ejs') %>

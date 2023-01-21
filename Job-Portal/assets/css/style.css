@@ -111,6 +111,7 @@ a {
 #photo2:hover {
     background: #06d69eb7;
     transform: scale(1.05);
+    box-shadow: 0px 8px 16px 0 rgba(0, 0, 0, 0.5);
 }
 
 #site-main .container form {
@@ -212,6 +213,7 @@ thead {
 }
 
 #update_user .form-group,
+#edit_company .form-group,
 #add_user .form-group,
 #add_company .form-group,
 #validate_user .form-group,
@@ -220,6 +222,7 @@ thead {
 }
 
 #update_user .form-group input[type="text"],
+#edit_company .form-group input[type="text"],
 #add_user .form-group input[type="text"],
 #validate_user .form-group input[type="text"],
 #validate_company .form-group input[type="text"],
@@ -235,6 +238,7 @@ thead {
 }
 
 #update_user .form-group .radio,
+#edit_company .form-group .radio,
 #add_user .form-group .radio,
 #add_company .form-group .radio,
 #validate_company .form-group .radio,
@@ -283,6 +287,7 @@ thead {
 }
 
 #update_user .form-group .btn,
+#edit_company .form-group .btn,
 #add_user .form-group .btn,
 #validate_user .form-group .btn,
 #validate_company .form-group .btn,
@@ -300,6 +305,7 @@ thead {
 }
 
 #update_user .form-group .btn:hover,
+#edit_company .form-group .btn:hover,
 #add_user .form-group .btn:hover,
 #validate_user .form-group .btn:hover,
 #validate_company .form-group .btn:hover,
@@ -365,6 +371,7 @@ thead {
     color: black;
     background-color: #5ff6bf;
     border-radius: 25px;
+    box-shadow: 0px 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
 .card:hover {
