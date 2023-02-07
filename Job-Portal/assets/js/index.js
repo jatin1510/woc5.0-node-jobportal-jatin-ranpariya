@@ -30,8 +30,8 @@ $("#update_user").submit(function (event)
         alert("Data updated successfully");
     })
 
-    const url = `http://localhost:3000/api/showstudent?email=${data.email}`;
-    document.location.href = url;
+    // User won't be able to go back via back button
+    location.replace(`http://localhost:3000/api/showstudent?email=${data.email}`);
 })
 
 $("#edit_company").submit(function (event)
@@ -56,6 +56,6 @@ $("#edit_company").submit(function (event)
         alert("Data updated successfully");
     })
 
-    const url = `http://localhost:3000/api/showcompany?email=${data.email}`;
-    document.location.href = url;
+    // User won't be able to go back via back button
+    location.replace(`http://localhost:3000/api/showcompany?email=${data.email}`);
 })
